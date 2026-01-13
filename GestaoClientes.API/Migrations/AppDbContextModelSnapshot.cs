@@ -48,6 +48,26 @@ namespace GestaoClientes.API.Migrations
 
                     b.ToTable("Clientes");
                 });
+
+            modelBuilder.Entity("GestaoClientes.API.Entities.Produto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Produtos");
+                });
 #pragma warning restore 612, 618
         }
     }

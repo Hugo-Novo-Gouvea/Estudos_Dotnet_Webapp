@@ -17,7 +17,17 @@ builder.Services.AddControllers();
 // Configura o Swagger (Documentação automática)
 // Se você estiver no .NET 9, pode manter o AddOpenApi, mas o SwaggerGen é o clássico
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(); 
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTudo", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
@@ -33,6 +43,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("PermitirTudo");
 
 // Diz para a API usar os Controllers que criarmos
 app.MapControllers(); 
