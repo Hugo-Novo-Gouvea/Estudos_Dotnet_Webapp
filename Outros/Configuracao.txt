@@ -20,7 +20,7 @@ dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 9.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
 
 # Documentação Visual (Swagger) - Versão Estável
-dotnet add package Swashbuckle.AspNetCore --version 6.6.2
+dotnet add package Swashbuckle.AspNetCore --version 7.0.0
 
 3. CONFIGURAÇÃO DA FERRAMENTA DE MIGRATION (A MÁQUINA DE CONSTRUÇÃO)
 --------------------------------------------------------------------
